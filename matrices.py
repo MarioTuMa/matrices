@@ -164,3 +164,4 @@ for i in range(size):
         fout.write(str(pixels[i][j][0])+" "+str(pixels[i][j][1])+" "+str(pixels[i][j][2])+" ")
 
     fout.write("\n")
+print("The image file is pic.ppm")    
