@@ -134,7 +134,7 @@ crosshair(int((Hx+p2x)/2),int((Hy+p2y)/2),5,255,0,0)
 crosshair(int((Hx+p3x)/2),int((Hy+p3y)/2),5,255,0,0)
 
 
-
+print("Big Line Matrix")
 matrixPrint(lineMatrix)
 rotAngle = math.pi/720
 
@@ -152,10 +152,17 @@ rotMatrix = [
 [-centerx*math.cos(rotAngle)+centery*math.sin(rotAngle)+centerx,-centerx*math.sin(rotAngle)-centery*math.cos(rotAngle)+centery,0,1]]
 lineMatrix.append([int((p2x+p3x)/2),int((p2y+p3y)/2),0,1])
 lineMatrix.append([int((p2x+p3x)/2),int((p2y+p3y)/2),0,1])
+
+print("Rotation Matrix")
+matrixPrint(rotMatrix)
+print("Line matrix that is actually a dot")
+matrixPrint(lineMatrix)
 for i in range(1440):
     matrixDraw()
     matrixMult(rotMatrix,lineMatrix)
-
+    if(i%360==0):
+        print("Multiplied line matrix that is actually a dot by rot matrix "+str(i)+" times")
+        matrixPrint(lineMatrix)
 
 matrixDraw()
 
@@ -164,4 +171,4 @@ for i in range(size):
         fout.write(str(pixels[i][j][0])+" "+str(pixels[i][j][1])+" "+str(pixels[i][j][2])+" ")
 
     fout.write("\n")
-print("The image file is pic.ppm")    
+print("The image file is pic.ppm")
